@@ -9,10 +9,17 @@ namespace KatlaSport.Services.HiveManagement
         public HiveManagementMappingProfile()
         {
             CreateMap<DataAccessHive, HiveListItem>();
+
             CreateMap<DataAccessHive, Hive>();
+
             CreateMap<DataAccessHiveSection, HiveSectionListItem>();
+
             CreateMap<DataAccessHiveSection, HiveSection>();
+
             CreateMap<UpdateHiveRequest, DataAccessHive>()
+                .ForMember(r => r.LastUpdated, opt => opt.MapFrom(p => System.DateTime.UtcNow));
+
+            CreateMap<UpdateHiveSectionRequest, DataAccessHiveSection>()
                 .ForMember(r => r.LastUpdated, opt => opt.MapFrom(p => System.DateTime.UtcNow));
         }
     }
