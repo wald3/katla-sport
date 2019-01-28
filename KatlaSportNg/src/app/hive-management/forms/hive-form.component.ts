@@ -37,10 +37,10 @@ export class HiveFormComponent implements OnInit {
   
   onSubmit() {
     if (this.existed){
-      this.hiveService.updateHive(this.hive).subscribe(h => this.navigateToHives());
+      this.hiveService.updateHive(this.hive).subscribe(p => this.navigateToHives());
     }
     else{
-      this.hiveService.addHive(this.hive).subscribe(h => this.navigateToHives());
+      this.hiveService.addHive(this.hive).subscribe(h => this.navigateToHives())
     }
   }
 
@@ -55,5 +55,4 @@ export class HiveFormComponent implements OnInit {
   onPurge() {
     this.hiveService.deleteHive(this.hive.id).subscribe(h => this.navigateToHives());
   }
-
 }
